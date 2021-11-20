@@ -1,0 +1,15 @@
+.navListItem:not(:last-child) {
+  margin-right: 30px;
+}
+.navItemLink {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 16px;
+}
+.navItemLink:hover {
+  color: rgb(248, 203, 121);
+}
+.navItemLinkActive {
+  color: rgb(184, 123, 12);
+}
