@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
-const HomePage = ({ match, movies }) => {
+const HomePage = ({ movies }) => {
   return (
     <>
       <h2>Trending today</h2>

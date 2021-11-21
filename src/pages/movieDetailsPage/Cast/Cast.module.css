@@ -1,0 +1,11 @@
+.castListItem {
+  display: flex;
+  flex-direction: column;
+  width: 120px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+.castListItem:not(:last-child) {
+  margin-right: 20px;
+}

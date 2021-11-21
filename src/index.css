@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(217, 230, 238);
+  background-color: rgb(222, 233, 240);
 }
 *,
 *::before,
@@ -11,6 +11,7 @@ body {
 ul[class],
 ol[class] {
   padding: 0;
+  list-style: none;
 }
 
 /* Убираем внешние отступы */
@@ -40,15 +41,12 @@ body {
   padding: 10px;
 }
 
-/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
-ul[class],
-ol[class] {
-  list-style: none;
-}
-
 /* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
 a:not([class]) {
   text-decoration-skip-ink: auto;
+}
+a {
+  text-decoration: none;
 }
 
 /* Упрощаем работу с изображениями */

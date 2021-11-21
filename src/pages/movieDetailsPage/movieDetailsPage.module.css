@@ -1,0 +1,20 @@
+.castList {
+  display: flex;
+  flex-wrap: wrap;
+}
+.itemDetails {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+.itemDetailsImage {
+  width: 30%;
+  min-width: 300px;
+  flex-grow: 1;
+  margin-right: 20px;
+}
+.itemDetailsInfo {
+  width: 65%;
+
+  /* flex-grow: 2; */
+}

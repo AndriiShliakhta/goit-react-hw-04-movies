@@ -6,22 +6,12 @@ import MoviesList from './MoviesList';
 import queryString from 'query-string';
 
 const MoviesPage = ({ history, location, upMovieSearch }) => {
-  // `search/movie?api_key=${apiKey}&query=${searchQuery}&page=${currentPage}&language=en-US`,
   const [foundMovies, setFoundMovies] = useState(null);
   const [movieSearch, setMovieSearch] = useState('');
 
   useEffect(() => {
     const parsed = queryString.parse(location.search);
-    // if (location.search) {
-    //   // setMovieSearch(location.search.split('=')[1]);
-    //   searchMovie(location.search);
-    // }
-    // console.log(parsed);
-
     if (parsed.query) searchMovie(parsed.query);
-    // if (!movieSearch) {
-    //   return;
-    // }
   }, [location.search]);
 
   const searchMovie = async movie => {
@@ -58,9 +48,7 @@ const MoviesPage = ({ history, location, upMovieSearch }) => {
         </label>
         <button type="submit">Search</button>
       </form>
-      {/* {foundMovies && ( */}
       <MoviesList foundMovies={foundMovies} movieSearch={movieSearch} />
-      {/* )} */}
     </>
   );
 };
