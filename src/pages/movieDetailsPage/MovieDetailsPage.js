@@ -1,11 +1,11 @@
 import axios from 'axios';
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { NavLink, withRouter, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react/cjs/react.development';
-import Cast from './Cast/Cast';
-import Reviews from './Reviews';
 import { mainRoutes } from '../../routes/mainRoutes';
 import { itemDetails, itemDetailsImage } from './movieDetailsPage.module.css';
+const Cast = lazy(() => import('./Cast/Cast'));
+const Reviews = lazy(() => import('./Reviews'));
 
 const MovieDetailsPage = ({ match, history, location, movieSearchWord }) => {
   const [movieDetails, setMovieDetails] = useState(null);
@@ -80,18 +80,22 @@ const MovieDetailsPage = ({ match, history, location, movieSearchWord }) => {
               </li>
             </ul>
             <hr />
-            <Route
-              path={`${match.url}/cast`}
-              exact
-              render={props => <Cast {...props} id={match.params.movieId} />}
-              key={`${match.url}/cast`}
-            />
-            <Route
-              path={`${match.url}/reviews`}
-              exact
-              render={props => <Reviews {...props} id={match.params.movieId} />}
-              key={`${match.url}/reviews`}
-            />
+            <Suspense fallback={<h2>Loading...</h2>}>
+              <Route
+                path={`${match.url}/cast`}
+                exact
+                render={props => <Cast {...props} id={match.params.movieId} />}
+                key={`${match.url}/cast`}
+              />
+              <Route
+                path={`${match.url}/reviews`}
+                exact
+                render={props => (
+                  <Reviews {...props} id={match.params.movieId} />
+                )}
+                key={`${match.url}/reviews`}
+              />
+            </Suspense>
           </div>
         </>
       )}
